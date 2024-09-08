@@ -13,6 +13,7 @@ require('lazy').setup({
   require 'plugins/treesitter',
   require 'plugins/lint',
   require 'plugins/neo-tree',
+  require 'plugins/tailwind-tools',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

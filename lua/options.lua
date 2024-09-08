@@ -1,7 +1,4 @@
 -- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
 
 -- Make line numbers default
 vim.opt.number = true
@@ -31,6 +28,7 @@ end)
 
 -- Enable break indent
 vim.opt.breakindent = true
+vim.opt.wrap = false
 
 -- Save undo history
 vim.opt.undofile = true
