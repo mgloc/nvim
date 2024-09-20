@@ -1,31 +1,39 @@
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Exit input mode by hitting the jj
 vim.keymap.set('i', 'jj', '<Esc>')
 
--- Remove windows ^M
-vim.keymap.set('n', '<leader>m', '<cmd>%s/\r//<CR>', { desc = 'Remove all ^M characters' })
+-- Open file explorer one pv
+vim.keymap.set('n', '<leader>ss', vim.cmd.Ex, { desc = 'Open Ex' })
 
--- Using C-k and C-j for completions
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
+-- Recenter on big moves and note lines for find and replace
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+
+-- greatest remap ever (do not save to buffer after replacing by pasting)
+vim.keymap.set('x', '<leader>p', [["_dP]])
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
+
+-- Search and replace visual (god tier)
+vim.keymap.set('v', '<leader>s', [["hy:%s/<C-r>h/<C-r>h/gI<Left><Left><Left>]])
+
+-- Remove ^M chars
+vim.keymap.set('n', '<leader>gm', function()
+  vim.cmd '%s/\r//g'
+end, { desc = 'Remove all ^M characters' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>l', vim.diagnostic.open_float, { desc = 'Open diagnostic [L]ocation list' })
 
 -- Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
--- [[ Autocommands ]]
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {

@@ -9,10 +9,10 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
 vim.opt.smartindent = true
 
--- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.wrap = false
+
 vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
@@ -26,12 +26,11 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
--- Enable break indent
-vim.opt.breakindent = true
-vim.opt.wrap = false
-
 -- Save undo history
 vim.opt.undofile = true
+
+vim.opt.swapfile = false
+vim.opt.backup = false
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true

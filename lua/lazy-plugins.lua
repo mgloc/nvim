@@ -14,6 +14,8 @@ require('lazy').setup({
   require 'plugins/lint',
   require 'plugins/neo-tree',
   require 'plugins/tailwind-tools',
+  require 'plugins/supermaven',
+  require 'plugins/lazygit',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
