@@ -14,7 +14,8 @@ return {
       },
     },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
+      notify_no_formatters = true,
       format_on_save = {
         timeout_ms = 750,
         lsp_fallback = 'fallback',
@@ -24,6 +25,8 @@ return {
         python = { 'black' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
+        ruby = { 'rubocop' },
+        eruby = { 'erb_format' },
         ['_'] = { 'prettier' },
       },
     },
