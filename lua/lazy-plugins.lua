@@ -11,7 +11,6 @@ require('lazy').setup({
   require 'plugins/todo-comments',
   require 'plugins/mini',
   require 'plugins/treesitter',
-  require 'plugins/lint',
   require 'plugins/neo-tree',
   require 'plugins/tailwind-tools',
   require 'plugins/supermaven',
