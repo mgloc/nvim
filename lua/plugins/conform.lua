@@ -35,7 +35,6 @@ return {
         eruby = { 'erb_format' },
         ylm = {},
         yaml = {},
-        markdown = { 'mdformat' },
       },
     },
   },
