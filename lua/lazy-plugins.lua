@@ -12,6 +12,7 @@ require('lazy').setup({
   require 'plugins/mini',
   require 'plugins/treesitter',
   require 'plugins/neo-tree',
+  require 'plugins/undotree',
   require 'plugins/tailwind-tools',
   require 'plugins/supermaven',
   require 'plugins/lazygit',
