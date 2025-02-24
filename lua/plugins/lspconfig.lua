@@ -94,6 +94,7 @@ return {
         lua_ls = {},
         rust_analyzer = {},
         gopls = {},
+        ruby_lsp = {},
       }
       local ensure_installed = vim.tbl_keys(servers or {})
 

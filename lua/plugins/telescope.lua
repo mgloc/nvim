@@ -34,7 +34,7 @@ return {
       vim.keymap.set('n', '<leader>sg', function()
         builtin.live_grep { file_ignore_patterns = { '**/assets/**/*.csv' } }
       end, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
