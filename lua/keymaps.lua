@@ -13,7 +13,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
--- greatest remap ever (do not save to buffer after replacing by pasting)
+-- greatest remap ever (do not save to registry after replacing by pasting)
 vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 
@@ -26,8 +26,7 @@ vim.keymap.set('n', '<leader>gm', function()
 end, { desc = 'Remove all ^M characters' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-vim.keymap.set('n', '<leader>l', vim.diagnostic.open_float, { desc = 'Open diagnostic [L]ocation list' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, { desc = 'Set diagnostics in [Q]list' })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
