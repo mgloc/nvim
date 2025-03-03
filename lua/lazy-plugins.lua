@@ -18,6 +18,7 @@ require('lazy').setup({
   require 'plugins/lazygit',
   require 'plugins/harpoon',
   require 'plugins/csvview',
+  require 'plugins/diffview',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
