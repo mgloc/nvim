@@ -19,13 +19,13 @@ return {
         desc = '[F]ormat buffer',
       },
       {
-        '<leader>F',
+        '<leader>tf',
         function()
           vim.g.disable_autoformat = not vim.g.disable_autoformat
           print('Autoformat ' .. (vim.g.disable_autoformat and 'disabled' or 'enabled'))
         end,
         mode = '',
-        desc = '[F]ormat toggle autoformat',
+        desc = '[T]oogle Auto[F]ormat',
       },
     },
     opts = {
@@ -46,7 +46,8 @@ return {
         if bufname:match '/node_modules/' then
           return
         end
-        return { timeout_ms = 1250, lsp_format = 'fallback' }
+        -- Note to self: Use manual format bind when its too long
+        return { timeout_ms = 500, lsp_format = 'fallback' }
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
