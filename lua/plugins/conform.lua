@@ -56,6 +56,7 @@ return {
         typescript = { 'prettier' },
         ruby = { 'rubocop' },
         eruby = { 'erb_format' },
+        markdown = { 'prettier' },
         yml = {},
         yaml = {},
       },
