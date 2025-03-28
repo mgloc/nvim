@@ -31,11 +31,11 @@ return {
           },
         }
       end, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>sg', function()
-        builtin.live_grep { file_ignore_patterns = { '**/assets/**/*.csv' } }
-      end, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
+      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('v', '<leader>sg', builtin.grep_string, { desc = '[S]earch [G]rep' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+      vim.keymap.set('n', '<leader>s.', builtin.git_files, { desc = '[S]earch [.]Gitfiles' })
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
