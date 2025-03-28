@@ -11,7 +11,6 @@ require('lazy').setup({
   require 'plugins/todo-comments',
   require 'plugins/mini',
   require 'plugins/treesitter',
-  require 'plugins/neo-tree',
   require 'plugins/undotree',
   require 'plugins/tailwind-tools',
   require 'plugins/supermaven',
@@ -19,6 +18,7 @@ require('lazy').setup({
   require 'plugins/harpoon',
   require 'plugins/csvview',
   require 'plugins/diffview',
+  require 'plugins/typr',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
