@@ -48,4 +48,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- CSVView
+vim.keymap.set('n', '<leader>tc', '<cmd>CsvViewToggle<CR>', { desc = '[T]oogle [C]SV View' })
+
 -- vim: ts=2 sts=2 sw=2 et
