@@ -22,13 +22,6 @@ return {
       vim.keymap.set('n', '<leader>sf', function()
         builtin.find_files {
           hidden = true,
-          file_ignore_patterns = {
-            '__pycache__',
-            'node_modules',
-            'build',
-            'dist',
-            '.git',
-          },
         }
       end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find existing buffers' })
