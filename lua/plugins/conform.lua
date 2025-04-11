@@ -13,7 +13,7 @@ return {
       {
         '<leader>f',
         function()
-          require('conform').format { async = true, lsp_fallback = true }
+          require('conform').format { async = true, lsp_format = 'first' }
         end,
         mode = '',
         desc = '[F]ormat buffer',
@@ -47,7 +47,7 @@ return {
           return
         end
         -- Note to self: Use manual format bind when its too long
-        return { timeout_ms = 500, lsp_format = 'fallback' }
+        return { timeout_ms = 500, lsp_format = 'first' }
       end,
       formatters_by_ft = {
         lua = { 'stylua' },

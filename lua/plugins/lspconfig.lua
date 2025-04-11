@@ -94,7 +94,10 @@ return {
         lua_ls = {},
         rust_analyzer = {},
         gopls = {},
-        ruby_lsp = {},
+        ruby_lsp = {
+          mason = false,
+          cmd = { vim.fn.expand '~/.asdf/shims/ruby-lsp' },
+        },
       }
       local ensure_installed = vim.tbl_keys(servers or {})
 

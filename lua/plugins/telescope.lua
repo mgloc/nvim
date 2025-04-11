@@ -17,6 +17,13 @@ return {
     config = function()
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      require("telescope").setup({
+        defaults = {
+          preview = {
+            filesize_limit = 0.5555,
+          },
+        },
+      })
 
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sf', function()
