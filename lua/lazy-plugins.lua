@@ -1,5 +1,5 @@
 -- [[ Configure and install plugins ]]
-require('lazy').setup({
+require('lazy').setup {
   'tpope/vim-sleuth',
   require 'plugins/gitsigns',
   require 'plugins/which-key',
@@ -7,6 +7,8 @@ require('lazy').setup({
   require 'plugins/lspconfig',
   require 'plugins/conform',
   require 'plugins/cmp',
+  require 'plugins/debug',
+  -- require 'plugins/colors',
   require 'plugins/tokyonight',
   require 'plugins/todo-comments',
   require 'plugins/mini',
@@ -19,24 +21,6 @@ require('lazy').setup({
   require 'plugins/csvview',
   require 'plugins/diffview',
   require 'plugins/typr',
-}, {
-  ui = {
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
-  },
-})
+}
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -31,14 +31,18 @@ vim.keymap.set('n', '<leader>gm', function()
   vim.cmd '%s/\r//g'
 end, { desc = 'Remove all ^M characters' })
 
--- Diagnostic keymaps
+-- Quickfix
 function ToggleQuickFix()
   vim.cmd(vim.fn.empty(vim.fn.filter(vim.fn.getwininfo(), 'v:val.quickfix')) == 1 and 'copen' or 'cclose')
 end
-vim.keymap.set('n', '<leader>bq', vim.diagnostic.setqflist, { desc = 'Send [B]uffer diagnostics to [Q]list' })
-vim.keymap.set('n', '<leader>q', ToggleQuickFix, { desc = 'Toogle [Q]uickfix list' })
 
 vim.api.nvim_create_user_command('ToggleQuickFix', ToggleQuickFix, {})
+vim.keymap.set('n', '<leader>q', ToggleQuickFix, { desc = 'Toogle [Q]uickfix list' })
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '<leader>lq', vim.diagnostic.setqflist, { desc = 'Send [B]uffer diagnostics to [Q]list' })
+vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic' })
+
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
