@@ -3,13 +3,10 @@ return {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
       {
-        -- Adds other completion capabilities.
-        --  nvim-cmp does not ship with all sources by default. They are split
-        --  into multiple repos for maintenance purposes.
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-path',
+        'hrsh7th/cmp-buffer',
       },
     },
     config = function()
@@ -52,12 +49,19 @@ return {
         sources = {
           {
             name = 'lazydev',
-            -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
             group_index = 0,
           },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          {
+            name = 'buffer',
+            option = {
+              get_bufnrs = function()
+                return vim.api.nvim_list_bufs()
+              end,
+            },
+          },
         },
       }
     end,
