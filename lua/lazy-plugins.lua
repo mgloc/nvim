@@ -19,7 +19,7 @@ require('lazy').setup {
   require 'plugins/harpoon',
   require 'plugins/csvview',
   require 'plugins/diffview',
-  require 'plugins/typr',
+  require 'plugins/fun',
 }
 
 -- vim: ts=2 sts=2 sw=2 et
