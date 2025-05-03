@@ -16,6 +16,13 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end)
 
+    vim.keymap.set('n', '<C-k>', function()
+      harpoon:list():prev()
+    end)
+    vim.keymap.set('n', '<C-j>', function()
+      harpoon:list():next()
+    end)
+
     -- Telescope like bindings
     harpoon:extend {
       UI_CREATE = function(cx)
