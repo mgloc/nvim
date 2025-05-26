@@ -1,5 +1,8 @@
 return {
-  { 'vuciv/golf' },
+  {
+    'vuciv/golf',
+    cmd = { 'Golf', 'GolfToday' },
+  },
   {
     'nvzone/typr',
     dependencies = 'nvzone/volt',
