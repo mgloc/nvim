@@ -11,12 +11,12 @@ return {
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
+        '<leader>ff',
         function()
           require('conform').format { async = true, lsp_format = 'first' }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = '[F]ile [F]ormat',
       },
       {
         '<leader>tf',
@@ -54,6 +54,7 @@ return {
         python = { 'black' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
+        json = { 'prettier' },
         ruby = { 'rubocop' },
         eruby = { 'erb_format' },
         markdown = { 'prettier' },
