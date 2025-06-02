@@ -1,7 +1,7 @@
 return {
   {
     'vuciv/golf',
-    cmd = { 'Golf', 'GolfToday' },
+    cmd = { 'Golf' },
   },
   {
     'nvzone/typr',
