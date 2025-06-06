@@ -14,19 +14,18 @@ return {
   },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
-    -- Main LSP Configuration
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Automatically install LSPs and related tools to stdpath for Neovim
-      { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
+      { 'mason-org/mason.nvim', config = true },
+      'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      'j-hui/fidget.nvim',
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
+      -- Keybindings for attached buffer
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
@@ -61,35 +60,39 @@ return {
         lua_ls = {},
         rust_analyzer = {},
         gopls = {},
-        ruby_lsp = {
-          mason = false,
-          cmd = { vim.fn.expand '~/.asdf/shims/ruby-lsp' },
-          init_options = {
-            addonSettings = {
-              ['Ruby LSP Rails'] = {
-                enablePendingMigrationsPrompt = false,
-              },
-            },
-          },
-        },
       }
       local ensure_installed = vim.tbl_keys(servers or {})
 
       local tools = { 'stylua', 'prettier' }
       vim.list_extend(tools, ensure_installed)
-      require('mason-tool-installer').setup { ensure_installed = { tools } }
 
-      require('mason-lspconfig').setup {
-        ensure_installed = ensure_installed,
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
+      -- Install tools automatically on setup
+      require('mason-tool-installer').setup {
+        ensure_installed = {
+          {
+            'gopls',
+            condition = function()
+              return vim.fn.executable 'go' == 1
+            end,
+          },
+          'lua_ls',
         },
       }
+
+      vim.lsp.config('ruby_lsp', {
+        capabilities = capabilities,
+        mason = false,
+        cmd = { vim.fn.expand '~/.asdf/shims/ruby-lsp' },
+        init_options = {
+          addonSettings = {
+            ['Ruby LSP Rails'] = {
+              enablePendingMigrationsPrompt = false,
+            },
+          },
+        },
+      })
+
+      require('mason-lspconfig').setup()
     end,
   },
 }
